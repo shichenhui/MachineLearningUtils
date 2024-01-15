@@ -47,14 +47,12 @@ def clustering_evaluation(data, true_label, metrics='ACC'):
     if 'ACC' in metrics:
         acc = np.round(accuracy_score(true_label, new_predict), 5)
         print('ACC: ', acc)
-    elif 'NMI' in metrics:
+    if 'NMI' in metrics:
         nmi = np.round(normalized_mutual_info_score(true_label, new_predict), 5)
         print('NMI: ', nmi)
-    elif 'ARI' in metrics:
+    if 'ARI' in metrics:
         ari = np.round(adjusted_rand_score(true_label, new_predict), 5)
         print('ARI: ', ari)
-    else:
-        raise NotImplementedError("The metric {} is not implemented.".format(metrics))
 
     return new_predict
 
